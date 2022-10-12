@@ -22,7 +22,15 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter{
 			   .withClient("client1")
 			   .secret("secret1")
 			   .scopes("read")
-			   .authorizedGrantTypes("password");
+			   .authorizedGrantTypes("password")
+			   //********************************************
+			   .and()//second client with different grantType
+			   //********************************************
+			   .withClient("client2")
+			   .secret("secret2")
+			   .scopes("read")
+			   .authorizedGrantTypes("authorization_code")
+			   .redirectUris("https://localhost:9090");
 	}
 
 	@Override
